@@ -1,0 +1,40 @@
+name: "Update HarmonyCandies profile/README.md"
+
+on:
+  schedule:
+    # Runs every 4 hours
+    - cron: "0 0/4 * * *"
+  workflow_dispatch:
+
+jobs:
+  pub_dashboard_job:
+    runs-on: ubuntu-latest
+    name: pub-dashboard :: HarmonyCandies .github/profile/README.md
+    steps:
+      - name: run pub-dashboard
+        uses: AmosHuKe/pub-dashboard@main
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          github_repo: "https://github.com/HarmonyCandies/.github"
+          filename: "profile/README.md"
+          publisher_list: "harmonycandies.com"
+          package_list: ""
+          sort_field: "published"
+          sort_mode: "asc"
+          commit_message: "Update profile/README.md (CI - pub_dashboard_job)"
+  ohpm_dashboard_job:
+    needs: pub_dashboard_job
+    runs-on: ubuntu-latest
+    name: ohpm-dashboard :: HarmonyCandies .github/profile/README.md
+    steps:
+      - name: run ohpm-dashboard
+        uses: AmosHuKe/ohpm-dashboard@main
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          github_repo: "https://github.com/HarmonyCandies/.github"
+          filename: "profile/README.md"
+          publisher_list: "6542179b6dad4e55f6635764"
+          package_list: ""
+          sort_field: "publishTime"
+          sort_mode: "asc"
+          commit_message: "Update profile/README.md (CI - ohpm_dashboard_job)"
