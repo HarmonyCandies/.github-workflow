@@ -5,6 +5,7 @@ on:
     # Runs every 4 hours
     - cron: "0 0/4 * * *"
   workflow_dispatch:
+  push:
 
 jobs:
   pub_dashboard_job:
