@@ -5,12 +5,11 @@ on:
     # Runs every 4 hours
     - cron: "0 0/4 * * *"
   workflow_dispatch:
-  push:
 
 jobs:
   pub_dashboard_job:
     runs-on: ubuntu-latest
-    name: pub-dashboard :: HarmonyCandies .github/profile/README.md
+    name: "pub-dashboard :: HarmonyCandies .github/profile/README.md"
     steps:
       - name: run pub-dashboard
         uses: AmosHuKe/pub-dashboard@main
@@ -26,7 +25,7 @@ jobs:
   ohpm_dashboard_job:
     needs: pub_dashboard_job
     runs-on: ubuntu-latest
-    name: ohpm-dashboard :: HarmonyCandies .github/profile/README.md
+    name: "ohpm-dashboard :: HarmonyCandies .github/profile/README.md"
     steps:
       - name: run ohpm-dashboard
         uses: AmosHuKe/ohpm-dashboard@main
