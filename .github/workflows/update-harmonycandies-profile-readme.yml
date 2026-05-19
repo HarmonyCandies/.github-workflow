@@ -2,8 +2,8 @@ name: "Update HarmonyCandies profile/README.md"
 
 on:
   schedule:
-    # Runs every 4 hours
-    - cron: "0 0/4 * * *"
+    # Runs every 8 hours
+    - cron: "0 0/8 * * *"
   workflow_dispatch:
 
 # Disable permissions for all of the available permissions
