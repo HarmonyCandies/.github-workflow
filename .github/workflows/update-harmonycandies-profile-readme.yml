@@ -6,13 +6,17 @@ on:
     - cron: "0 0/4 * * *"
   workflow_dispatch:
 
+# Disable permissions for all of the available permissions
+permissions: {}
+
 jobs:
   pub_dashboard_job:
+    if: github.repository == 'HarmonyCandies/.github-workflow'
     runs-on: ubuntu-latest
     name: "pub-dashboard :: HarmonyCandies .github/profile/README.md"
     steps:
       - name: run pub-dashboard
-        uses: AmosHuKe/pub-dashboard@main
+        uses: AmosHuKe/pub-dashboard@f6296be2d1949a19fb6a2dbe8072421a6a03f2ed
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           github_repo: "https://github.com/HarmonyCandies/.github"
@@ -23,12 +27,13 @@ jobs:
           sort_mode: "asc"
           commit_message: "Update profile/README.md (CI - pub_dashboard_job)"
   ohpm_dashboard_job:
+    if: github.repository == 'HarmonyCandies/.github-workflow'
     needs: pub_dashboard_job
     runs-on: ubuntu-latest
     name: "ohpm-dashboard :: HarmonyCandies .github/profile/README.md"
     steps:
       - name: run ohpm-dashboard
-        uses: AmosHuKe/ohpm-dashboard@main
+        uses: AmosHuKe/ohpm-dashboard@f74d925b8eff2b0c41d4f43daed2a0dc72c3067f
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           github_repo: "https://github.com/HarmonyCandies/.github"
