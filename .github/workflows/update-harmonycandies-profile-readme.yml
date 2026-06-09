@@ -16,7 +16,7 @@ jobs:
     name: "pub-dashboard :: HarmonyCandies .github/profile/README.md"
     steps:
       - name: run pub-dashboard
-        uses: AmosHuKe/pub-dashboard@b6e3ec7d3aa2c878582057672bd66762a06377ee
+        uses: AmosHuKe/pub-dashboard@24cb150a9b48e0001240c8cb6e9083daa87e80c2
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           github_repo: "https://github.com/HarmonyCandies/.github"
