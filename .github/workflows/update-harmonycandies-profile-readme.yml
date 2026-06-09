@@ -33,7 +33,7 @@ jobs:
     name: "ohpm-dashboard :: HarmonyCandies .github/profile/README.md"
     steps:
       - name: run ohpm-dashboard
-        uses: AmosHuKe/ohpm-dashboard@f74d925b8eff2b0c41d4f43daed2a0dc72c3067f
+        uses: AmosHuKe/ohpm-dashboard@cfac5180b9f2edeb2727964ef6aedb4682787ef0
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           github_repo: "https://github.com/HarmonyCandies/.github"
